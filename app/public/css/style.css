@@ -1,0 +1,171 @@
+body {
+  padding-top: 72px;
+  line-height: 1.8;
+  font-family: 'Ubuntu', sans-serif;
+  margin-bottom: 100px;
+}
+
+p {font-size: 16px;}
+
+
+
+.margin {margin-bottom: 45px;}
+
+.bg-1 {
+  background-image: url(/images/houses.jpg);
+  background-repeat: no-repeat;
+  color: #ffffff;
+  background-size:cover;
+}
+
+.notconfirmed {
+  
+}
+
+.confirmed {
+  
+}
+
+footer {
+  background-color: white;
+  text-align: center;
+  font-size: 12px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+footer p {
+  color: black;
+  padding: 6px;
+}
+
+.container-fluid {
+  padding-top: 20px;
+  padding-bottom: 70px;
+  color: #2F2F2F;
+  min-height: 500px;
+}
+
+.navbar {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 0;
+  border-radius: 0;
+  margin-bottom: 0;
+  font-size: 12px;
+  letter-spacing: 5px;
+}
+
+input {
+  color: #2F2F2F;
+}
+
+.navbar_button {
+  background:transparent;
+  border:0 none;
+  cursor:pointer;
+}
+
+.navbar_button:hover {
+  color: #e6005c;
+  font-size: 18px;
+}
+
+form.nav {
+  float: right;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+textarea {
+  resize: none;
+  color: #2F2F2F;
+}
+
+#errors li{
+  text-align: left;
+  font-size: 15px;
+}
+
+.spaces {
+  background-color: white;
+  border-style: double;
+  border-radius: 10px;
+  border-color: #2F2F2F;
+  color: #3384AC;
+  margin-top: 10px;
+  margin-left: 5%;
+  margin-right: 5%;
+  overflow: auto;
+}
+
+.spaces h3 {
+  margin: 10px;
+  color: black;
+  text-align: left;
+}
+
+.spaces p {
+  width:  50%;
+}
+
+#price {
+  font-size: 13px;
+  /*font-style: italic;*/
+  color: #006dcc;
+}
+
+.space_description {
+  text-align: justify;
+  margin: 10px;
+}
+
+/*.peep_time {
+  text-align: right;
+  margin-right: 10px;
+  color: #e6005c;
+}*/
+
+.sign {
+  margin-bottom: 5px;
+  width: 20%
+}
+
+.white-background {
+  background: white;
+}
+
+<<<<<<< HEAD
+.panel-default > .panel-heading-custom {
+  background: #ffffff; color: #000000;
+}
+
+h1.panel-title {
+    font-size: 36px;
+}
+h2.panel-title {
+    font-size: 30px;
+}
+h3.panel-title {
+    font-size: 24px;
+}
+h4.panel-title {
+    font-size: 18px
+}
+h5.panel-title {
+    font-size: 14px
+}
+h6.panel-title {
+    font-size: 10px;
+}
+
+=======
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+>>>>>>> master

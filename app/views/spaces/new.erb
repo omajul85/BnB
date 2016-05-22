@@ -1,0 +1,44 @@
+<h1>Create space</h1>
+<form action="/spaces" method='post' id="eventForm">
+	<input class='sign' type='text' name='name' placeholder='Name' required><br>
+	<textarea class="sign" name='description' placeholder="Description" required></textarea><br>
+	<input class='sign' type='text' name='price'  placeholder='Price' required><br>
+	<input class='sign' id="daterange" type='text' name='datepicker' placeholder='Available from' required><br>
+	<input type='hidden' id="available_from" name='available_from' value=""><br>
+	<input type='hidden' id="available_to" name='available_to' value="">
+	<input id="submit" class="btn btn-warning" type='submit' value='Create space'>
+</form>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+
+<script>
+	$('#daterange').daterangepicker({
+    "autoApply": true,
+    "locale": {
+    	format: 'DD-MM-YYYY'
+    },
+    "dateFormat": 'dd/mm/yyyy',
+    "dateLimit": {
+        "days": 31
+    }
+    // "startDate": "05/01/2016",
+    // "endDate": "08/31/2016"
+}, function(start, end, label) {
+  console.log("New date range selected: ' + start.format('DD/MM/YYYY') + ' to ' + end.format('DD/MM/YYYY') + ' (predefined range: ' + label + ')");
+});	
+	var availableFrom;
+	var availableTo;
+
+	$( '#daterange' ).change(function() {
+		var startD = $('#daterange').data('daterangepicker').startDate._d;
+		var endD = $('#daterange').data('daterangepicker').endDate._d;
+		availableFrom = (startD.getDate() + '/' + (startD.getMonth() + 1) + '/' +  startD.getFullYear());
+		availableTo = (endD.getDate() + '/' + (endD.getMonth() + 1) + '/' +  endD.getFullYear());
+		console.log(availableFrom);
+		console.log(availableTo);
+		$( "#available_from" ).attr( "value", availableFrom );
+		$( "#available_to" ).attr( "value", availableTo );
+	});
+</script>
+

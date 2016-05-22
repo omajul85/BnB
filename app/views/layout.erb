@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+  <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
+  <link href="/css/style.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+  <title>BnByte4</title>
+</head>
+<body>
+  <%= partial :navigation_bar %>
+  
+  <div class="container-fluid bg-1 text-center">
+    <%= partial :welcome %>
+    <%= partial :flash %>
+    <%= yield %>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p class='credit'>BnByte4 members: <a href="https://github.com/omajul85" target="_blank">Omar Alvarez</a>, <a href="https://github.com/DXTimer" target="_blank">Ivan Bakalov</a>, <a href="https://github.com/chriselevate" target="_blank">Chris Coates</a>, <a href="https://github.com/jackrim1" target="_blank">Jack Riminton</a></p> 
+    <p class='credit'>Bootstrap Theme Made By <a href="http://www.w3schools.com" target="_blank">www.w3schools.com</a></p> 
+  </footer>
+  
+</body>
+</html>

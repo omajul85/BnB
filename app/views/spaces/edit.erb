@@ -1,0 +1,9 @@
+<h1>Edit your space</h1>
+
+<form action="/spaces/edit" method='post'>
+	<input class='sign' type='text' name='name' value='<%= @space.name %>' required><br>
+	<textarea class='sign' name='description' required><%= @space.description %></textarea><br>
+	<input class='sign' type='text' name='price'  value='<%= @space.price %>' required><br>
+	<input type='hidden' type='text' name='space_id' value='<%= @space.id %>'><br>
+	<input id="submit" class="btn btn-warning" type='submit' value='Update space'>
+</form>

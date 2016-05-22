@@ -1,0 +1,78 @@
+<h1 class="display-3"> Space details </h1>
+<hr class="m-y-2">
+
+<div class ="row">
+<div class= "col-md-3">
+</div>
+
+<div class="col-md-6">
+<div class="jumbotron white-background">
+  <h1 class="display-3"><%= @space.name %> </h1>
+  <p class="lead"> Price per night: <%= @space.price %> </p>
+
+  <hr class="m-y-2">
+  <p><%= @space.description %></p>
+  <div>
+  <input id="daterange" type="text" ></input>
+  </div>
+  <p class="lead">
+  <form action="/requests/new" method="POST" id="requestForm">
+    <input type="hidden" id="request_from" name="request_from" value=""></input>
+    <input type="hidden" id="request_to" name="request_to" value=""></input>
+    <input type="hidden" id="space_id" name="space_id" value="<%= @space.id %>"></input>
+    <input type="hidden" id="owner_id" name="owner_id" value="<%= @space.user.id %>"></input>
+    <button class="btn btn-primary btn-lg" type="submit">Make a request</button>
+  </form>
+  </p>
+</div>
+</div>
+
+</div>
+<div class= "col-md-3">
+</div>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+
+<script>
+  $('#daterange').daterangepicker({
+    "autoApply": true,
+    "isInvalidDate": validDates,
+    "locale": {
+      "format": 'DD-MM-YYYY'
+    },
+    "dateFormat": 'dd-mm-yy',
+    "dateLimit": {
+        "years": 1
+    },
+    "minDate": '<%= @space.available_from.strftime("%d/%-m/%Y") %>',
+    "maxDate": '<%= @space.available_to.strftime("%d/%-m/%Y") %>'
+}, function(start, end, label) {
+  console.log("New date range selected: ' + start.format('DD-MM-YYYY') + ' to ' + end.format('DD-MM-YYYY') + ' (predefined range: ' + label + ')");
+});
+  console.log(validDates);
+  function validDates(date) {
+      var arr = <%= @unavailable_dates %>;
+      var string = (date._d.getDate() + '/' + (date._d.getMonth() + 1) + '/' +  date._d.getFullYear());
+      return $.inArray(string,arr) != -1
+    }
+
+  function datepickerv2(elid_date_from, elid_date_to){
+    var startD = $('#daterange').data('daterangepicker').startDate._d;
+    var endD = $('#daterange').data('daterangepicker').endDate._d;
+    availableFrom = (startD.getDate() + '/' + (startD.getMonth() + 1) + '/' +  startD.getFullYear());
+    availableTo = (endD.getDate() + '/' + (endD.getMonth() + 1) + '/' +  endD.getFullYear());
+    console.log(availableFrom);
+    console.log(availableTo);
+    $( elid_date_from ).attr( "value", availableFrom );
+    $( elid_date_to ).attr( "value", availableTo );
+}
+
+  var availableFrom;
+  var availableTo;
+  datepickerv2("#request_from", "#request_to");
+
+  $( '#daterange' ).change(function() {
+    datepickerv2("#request_from", "#request_to");
+  });
+  </script>
