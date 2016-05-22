@@ -18,6 +18,10 @@ class BnByte4 < Sinatra::Base
   end
 
   get '/requests' do
+    unless current_user
+      redirect '/sessions/new'
+    end
+
     @spaces = current_user.spaces
     @received_request = []
     @spaces.each do |space|
@@ -30,7 +34,7 @@ class BnByte4 < Sinatra::Base
     @requests.each do |request|
       @space_names << request.space.name
     end
-    erb :'/requests/requests'
+    erb :'/requests/index'
   end
 
   post '/requests/approve/:request_id' do

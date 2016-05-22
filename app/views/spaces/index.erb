@@ -22,7 +22,7 @@
 
 <% @spaces.each_with_index do |s, i| %>
 
-<a href="/spaces/request?space_id=<%= s.id %>" style="text-decoration: none;">
+<a href="/spaces/request/<%= s.id %>" style="text-decoration: none;">
 
 <div id='space_<%= i%>' class='panel panel-default'>
   <div class="panel-heading panel-heading-custom">
@@ -31,7 +31,7 @@
   </div>
   <div class="panel-body">
   <p class="space_description"> <%= s.description %> </p>
-  <p class="space_description">Available from: <%= s.available_from %> to <%= s.available_to %> </p>
+  <p class="space_description">Available from: <%= s.from_time_format %> to <%= s.to_time_format %> </p>
   </div>
 </div>
 </a>

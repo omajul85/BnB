@@ -16,4 +16,12 @@ class Space
   property :available_from, Date, required: true
   property :available_to, Date, required: true
 
+  def from_time_format
+    self.available_from.strftime("%d/%m/%Y")
+  end
+
+  def to_time_format
+    self.available_to.strftime("%d/%m/%Y")
+  end
+
 end

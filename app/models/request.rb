@@ -12,4 +12,12 @@ class Request
 
   belongs_to :user
   belongs_to :space
+
+  def from_time_format
+    self.date_from.strftime("%d/%m/%Y")
+  end
+
+  def to_time_format
+    self.date_to.strftime("%d/%m/%Y")
+  end
 end

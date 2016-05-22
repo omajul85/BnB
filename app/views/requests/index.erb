@@ -4,8 +4,8 @@
 
 
 <div class ="row">
-<div class= "col-md-2">
-</div>
+	<div class= "col-md-2">
+	</div>
 
 	<div class="col-md-4" >
 		<div class ="jumbotron white-background">
@@ -27,36 +27,33 @@
 
 		</div>
 
-		</div>
+</div>
 
-		<div class="col-md-4">
-			<div class="jumbotron white-background">
-				<h2>Received</h2>
-				<hr class="m-y-2">
+	<div class="col-md-4">
+		<div class="jumbotron white-background">
+			<h2>Received</h2>
+			<hr class="m-y-2">
 
 
-				<% @received_request.each do |request| %>
-				<div id="space" class="panel panel-info">
-					<div class="panel-heading">
-						<h3 class="panel-title"> Request from <%= request.user.name %> </h3>
-						</div>
-						<div class="panel-body">
+			<% @received_request.each do |request| %>
+			<div id="space" class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title"> Request from <%= request.user.name %> </h3>
+				</div>
+				<div class="panel-body">
 					<%= request.user.name %> has requested <%=request.space.name%> for the following dates:
 					<p>
-					<%=request.date_from %> - <%=request.date_to%><p>
+					<%=request.from_time_format %> - <%=request.to_time_format %><p>
 						<%= request.status %>
 						<% if request.status.sub(' ', "").downcase == "notconfirmed" %>
 						<form method="POST" action="/requests/approve/<%= request.id %>">
-						<button id="request_accept_<%= request.id %>" type="submit">Approve</button></form>
-						<% end %>
+							<button id="request_accept_<%= request.id %>" type="submit">Approve</button></form>
+							<% end %>
+						</div>
 					</div>
+					<% end %>
 				</div>
-				<% end %>
 			</div>
-		</div>
-<div class= "col-md-2">
-</div>
-	</div>
 
 
 

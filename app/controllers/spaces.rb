@@ -44,7 +44,7 @@ class BnByte4 < Sinatra::Base
     redirect '/'
   end
 
-  get '/spaces/request' do
+  get '/spaces/request/:space_id' do
     @space_id = params[:space_id]
     @space = Space.get(@space_id)
     @unavailable_dates = []
